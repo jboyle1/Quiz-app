@@ -16,7 +16,7 @@ def game_loop():
         if option == '1':
             print("You selected 'Ask questions'")
         elif option == '2':
-            print("You selected 'Add a question'")
+            add_question() #(commit 4 - We can get rid of our print statement here, and run the add_question() function. Now, when the user selects option 2 then the add_question() function that we just created will be called and we'll be prompted for a question and an answer.
         elif option == '3':
             break
         else :
@@ -25,7 +25,7 @@ def game_loop():
         
 game_loop()
 
-#Add the option to add a question to our file. We want to be prompted for a question and answer, and then we want both of them to be appended to the questions.txt file
+#Added the option to add a question to our file. We want to be prompted for a question and answer, and then we want both of them to be appended to the questions.txt file.
 
 def add_question():
     print('')
@@ -41,3 +41,6 @@ def add_question():
     file.write(question + '\n')
     file.write(answer + '\n')
     file.close()
+    
+#Now to actually get it working I need to call the function from inside our game loop if the user chooses option 2.
+
