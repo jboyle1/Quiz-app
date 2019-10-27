@@ -24,3 +24,20 @@ def game_loop():
         print('')
         
 game_loop()
+
+#Add the option to add a question to our file. We want to be prompted for a question and answer, and then we want both of them to be appended to the questions.txt file
+
+def add_question():
+    print('')
+    question = input('Enter a question\n> ')
+    
+    print('')
+    print('OK then, tell me the answer')
+    answer = input('{0}\n '.format(question))
+    
+#Here I add this to the file. We'll open our questions.txt file for appending using the 'a' access mode flag.
+    
+    file = open('questions.txt', 'a')
+    file.write(question + '\n')
+    file.write(answer + '\n')
+    file.close()
