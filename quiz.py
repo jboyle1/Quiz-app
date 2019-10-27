@@ -8,23 +8,24 @@ def show_menu():
     option = input('Enter option: ')
     return option
 
-#A loop that continues as long as you keep playing the game.
+#Added the option to ask a question to our file. 
 
-def game_loop():
-    while True:
-        option = show_menu()
-        if option == '1':
-            print("You selected 'Ask questions'")
-        elif option == '2':
-            add_question() #(commit 4 - We can get rid of our print statement here, and run the add_question() function. Now, when the user selects option 2 then the add_question() function that we just created will be called and we'll be prompted for a question and an answer.
-        elif option == '3':
-            break
-        else :
-            print('Invalid option')
-        print('')
+def ask_questions():
+    questions = []
+    answers=[]
+    
+    with open('questions.txt', 'r') as file:
+        lines = file.read().splitlines()
         
-game_loop()
-
+    for i, text in enumerate(lines):
+        if i%2 == 0:
+            questions.append(text)
+        else:
+            answers.append(text)
+    
+    for question, answer in zip(questions, answers):
+        guess = input(question + '> ')
+    
 #Added the option to add a question to our file. We want to be prompted for a question and answer, and then we want both of them to be appended to the questions.txt file.
 
 def add_question():
@@ -43,4 +44,23 @@ def add_question():
     file.close()
     
 #Now to actually get it working I need to call the function from inside our game loop if the user chooses option 2.
+
+#A loop that continues as long as you keep playing the game.
+
+def game_loop():
+    while True:
+        option = show_menu()
+        if option == '1':
+            ask_questions()
+        elif option == '2':
+            add_question()
+        elif option == '3':
+            break
+        else :
+            print('Invalid option')
+        print('')
+        
+game_loop()
+
+
 
