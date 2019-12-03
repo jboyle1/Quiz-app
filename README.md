@@ -4,10 +4,10 @@ The game will store questions and answers in a file. When you run it, it will as
 
 To use this app clone the repository or open in gitpod. You will have to install the following packages using these commands in the CLI:
 
-pip3 install flask
-pip3 install flask-pymongo
-pip3 install pymongo
-pip3 install dnspython
+* pip3 install flask
+* pip3 install flask-pymongo
+* pip3 install pymongo
+* pip3 install dnspython
 
 To run the app type:
 
